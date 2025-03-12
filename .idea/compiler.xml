@@ -2,9 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="BreakingNews" target="23" />
-      <module name="BreakingNews.main" target="23" />
-      <module name="BreakingNews.test" target="23" />
+      <module name="BreakingNews" target="21" />
+      <module name="BreakingNews.main" target="21" />
+      <module name="BreakingNews.test" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>
