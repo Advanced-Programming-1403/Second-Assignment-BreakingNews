@@ -6,19 +6,50 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Infrastructure {
 
     private final String URL;
     private final String APIKEY;
     private final String JSONRESULT;
-    private ArrayList<News> newsList; // TODO: Create the News class
+    private ArrayList<News> newsList;
 
+    public class News {
+        private String title;
+        private String description;
+        private String url;
+
+        public News(String title, String description, String url) {
+            this.title = title;
+            this.description = description;
+            this.url = url;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        @Override
+        public String toString() {
+            return "Title: " + title + "\nDescription: " + description + "\nURL: " + url + "\n";
+        }
+    }
 
     public Infrastructure(String APIKEY) {
         this.APIKEY = APIKEY;
-        this.URL = "https://newsapi.org/v2/everything?q=tesla&from=2025-02-05&sortBy=publishedAt&apiKey=";
+        this.URL = "https://newsapi.org/v2/everything?q=tesla&from=" + LocalDate.now().minusDays(1) + "&sortBy=publishedAt&apiKey=";
+        this.newsList = new ArrayList<>();
         this.JSONRESULT = getInformation();
+        parseInformation(); // باید بعد از دریافت JSON اجرا شود
     }
 
     public ArrayList<News> getNewsList() {
@@ -46,15 +77,55 @@ public class Infrastructure {
     }
 
     private void parseInformation() {
-        // TODO: Get the first 20 news from the articles array of the json result
-        //  and parse the information of each on of them to be mapped to News class
-        //  finally add them to newsList in this class to display them in the output
+        if (JSONRESULT == null || !JSONRESULT.contains("\"articles\"")) {
+            System.out.println("No valid JSON data available.");
+            return;
+        }
+
+        newsList.clear();
+
+        // پیدا کردن بخش مقالات
+        String[] jsonParts = JSONRESULT.split("\"articles\":\\[");
+        if (jsonParts.length < 2) {
+            System.out.println("Error: No articles found in JSON.");
+            return;
+        }
+
+        String articlesSection = jsonParts[1].split("]")[0];
+        String[] articles = articlesSection.split("\\},\\{");
+
+        for (int i = 0; i < Math.min(20, articles.length); i++) {
+            String article = articles[i].trim();
+            if (article == null || article.isEmpty()) continue;
+
+            // استخراج اطلاعات با استفاده از substring و indexOf
+            String title = extractValue(article, "\"title\":\"", "\"");
+            String description = extractValue(article, "\"description\":\"", "\"");
+            String url = extractValue(article, "\"url\":\"", "\"");
+
+            if (title != null && url != null) {
+                newsList.add(new News(title, description != null ? description : "No description available", url));
+            }
+        }
+    }
+
+    private String extractValue(String text, String startDelimiter, String endDelimiter) {
+        int startIndex = text.indexOf(startDelimiter);
+        if (startIndex == -1) return null;
+        startIndex += startDelimiter.length();
+        int endIndex = text.indexOf(endDelimiter, startIndex);
+        if (endIndex == -1) return null;
+        return text.substring(startIndex, endIndex).replace("\\\"", "\"");
     }
 
     public void displayNewsList() {
-        // TODO: Display titles of the news you got from api
-        //  and print them in a way that user can choose one
-        //  to see the full information of the news
+        if (newsList.isEmpty()) {
+            System.out.println("No news available.");
+            return;
+        }
+        System.out.println("News List:");
+        for (int i = 0; i < newsList.size(); i++) {
+            System.out.println((i + 1) + ". " + newsList.get(i).getTitle());
+        }
     }
-
 }
