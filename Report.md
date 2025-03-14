@@ -1,62 +1,45 @@
 # Project Title
 
-Simple overview of use/purpose.
+This report outlines the tasks completed in implementing a Java-based News Aggregator using Gradle as a package manager. It also details the challenges encountered during development and their solutions.
+
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
-
+Our project is a Java-based News Aggregator that fetches current news articles from NewsAPI.org and displays them using both a console menu and a Swing-based GUI. It uses Gradle for dependency management, with the org.json library to parse the API's JSON responses. The application is organized into key classes: News encapsulates article details, Infrastructure handles API communication and data parsing, and Main provides a user-friendly interface for browsing, selecting, and saving articles as favorites.
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* JDK (version 11 or later).
+* Gradle package (Gradle Wrapper is recommmended.)
+* org.json Library
+* Java Swing
+* An internet connection for fetching news articles. 
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* This project is available at https://github.com/Advanced-Programming-1403/Second-Assignment-BreakingNews
+* Gradle Wrapper:
+    If you do not have the wrapper files (gradlew/gradlew.bat), run gradle wrapper in the project root to generate them. This ensures consistent build behavior across different environments.
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+You can easily run the project using your IDE, or using these commands:
+1. Navigate to your project's root directory
+2. Run "./gradlew build" for MacOS/Linux, or "gradlew.bat build" for Windows.
+3. Run "./gradlew run" for MacOS/Linux, or "gradlew.bat run" for Windows.
+
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+Make sure you've installed Gradle Wrapper (gradlew) and ensure JSON Library is in build.gradle.
+Check you internet connection or try to change your ip using any DNS or VPN.
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Amirmohammad Gholami [@The_amirrzh](https://t.me/the_amirrzh)
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
 * 0.1
     * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
