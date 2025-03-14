@@ -1,5 +1,16 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+//    id 'org.beryx.jlink' version '2.22.0'
+    id 'org.beryx.runtime' version '1.13.0'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+javafx {
+//    version = "20.0.2"
+    version = "21"
+    modules = ['javafx.controls', 'javafx.swing', 'javafx.graphics' , 'javafx.fxml' , 'javafx.media', 'javafx.web', 'javafx.base']
 }
 
 group = 'AP'
@@ -10,6 +21,62 @@ repositories {
 }
 
 dependencies {
+
+    implementation 'org.openjfx:javafx:21'
+
+    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:mac"
+    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:mac-aarch64"
+
+    runtimeOnly "org.openjfx:javafx-swing:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-swing:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-swing:$javafx.version:mac"
+    runtimeOnly "org.openjfx:javafx-swing:$javafx.version:mac-aarch64"
+
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:mac"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:mac-aarch64"
+
+    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:mac"
+    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:mac-aarch64"
+
+    runtimeOnly "org.openjfx:javafx-media:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-media:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-media:$javafx.version:mac"
+    runtimeOnly "org.openjfx:javafx-media:$javafx.version:mac-aarch64"
+
+    runtimeOnly "org.openjfx:javafx-web:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-web:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-web:$javafx.version:mac"
+    runtimeOnly "org.openjfx:javafx-web:$javafx.version:mac-aarch64"
+
+    runtimeOnly "org.openjfx:javafx-base:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-base:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-base:$javafx.version:mac"
+    runtimeOnly "org.openjfx:javafx-base:$javafx.version:mac-aarch64"
+
+    // https://mvnrepository.com/artifact/io.github.palexdev/materialfx
+    implementation 'io.github.palexdev:materialfx:11.16.1'
+    // https://mvnrepository.com/artifact/io.github.palexdev/mfxresources
+    implementation 'io.github.palexdev:mfxresources:11.9.1'
+    // https://mvnrepository.com/artifact/io.github.palexdev/virtualizedfx
+    implementation 'io.github.palexdev:virtualizedfx:11.9.6'
+    // https://mvnrepository.com/artifact/io.github.palexdev/mfxcore
+    implementation 'io.github.palexdev:mfxcore:11.8.0'
+    // https://mvnrepository.com/artifact/io.github.palexdev/mfxlocalization
+    implementation 'io.github.palexdev:mfxlocalization:11.1.0'
+    // https://mvnrepository.com/artifact/io.github.palexdev/mfxeffects
+    implementation 'io.github.palexdev:mfxeffects:11.3.1'
+
+    //    implementation 'org.kordamp.ikonli:ikonli-core:12.3.1'
+//    implementation 'org.kordamp.ikonli:ikonli-javafx:12.3.1'
+//    implementation 'org.kordamp.ikonli:ikonli-fontawesome-pack:12.3.1'
+    // https://mvnrepository.com/artifact/fr.brouillard.oss/cssfx
+    implementation ('fr.brouillard.oss:cssfx:11.5.1'){ exclude group: 'org.openjfx' }
 
     implementation 'org.json:json:20240303'
     implementation 'org.apache.commons:commons-csv:1.12.0'
@@ -22,4 +89,25 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes 'Main-Class': 'AP.Main'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+application {
+    applicationDefaultJvmArgs = ["-Dglass.disableGrab=true"]
+    mainClass = 'AP.Main'
+}
+
+runtime {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    modules = ['javafx.base', 'javafx.controls', 'javafx.fxml', 'javafx.media', 'javafx.web', 'javafx.swing', 'javafx.graphics']
 }

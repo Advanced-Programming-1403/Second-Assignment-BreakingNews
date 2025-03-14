@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.palexdev:mfxlocalization:11.1.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.github.palexdev" artifactId="mfxlocalization" version="11.1.0" baseVersion="11.1.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.palexdev/mfxlocalization/11.1.0/c96becc3b304b73caf082cd5155407e05543c10c/mfxlocalization-11.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

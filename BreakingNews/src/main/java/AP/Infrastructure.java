@@ -25,7 +25,7 @@ public class Infrastructure {
 
     private final String URL;
     private final String APIKEY;
-    private final String JSON_RESULT;
+    private String jsonResult;
     private final String CSV_PATH;
     private ArrayList<News> newsList;
 
@@ -34,10 +34,20 @@ public class Infrastructure {
         this.APIKEY = APIKEY;
         this.CSV_PATH = CSV_PATH;
         this.URL = "https://newsapi.org/v2/everything?q=tesla&from=" + LocalDate.now().minusDays(1) + "&sortBy=publishedAt&apiKey=";
-        this.JSON_RESULT = getInformation();
+        this.jsonResult = getInformation();
     }
 
     public ArrayList<News> getNewsList() {
+        if (newsList == null){
+            parseInformation();
+        }
+
+        return newsList;
+    }
+    
+    public ArrayList<News> getAndRefreshNewsList() {
+        this.jsonResult = getInformation();
+        parseInformation();
         return newsList;
     }
 
@@ -63,14 +73,14 @@ public class Infrastructure {
     }
 
     private void parseInformation() {
-        if (JSON_RESULT == null) {
+        if (jsonResult == null) {
             System.err.println("Couldn't get information from the API");
             throw new RuntimeException("Couldn't get information from the API");
         }
 
         newsList = new ArrayList<>(); // Refresh news list
 
-        JSONObject object = new JSONObject(JSON_RESULT);
+        JSONObject object = new JSONObject(jsonResult);
         JSONArray jsonArray = object.getJSONArray("articles");
 
         for (int i = 0; i < Math.min(jsonArray.length(), 20); i++) {

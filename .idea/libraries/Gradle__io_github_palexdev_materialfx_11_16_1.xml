@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.palexdev:materialfx:11.16.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.github.palexdev" artifactId="materialfx" version="11.16.1" baseVersion="11.16.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.palexdev/materialfx/11.16.1/e139f860fccc670a3533d56a494958472ac298e4/materialfx-11.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
