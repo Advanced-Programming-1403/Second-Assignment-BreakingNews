@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.palexdev:virtualizedfx:11.9.6" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.github.palexdev" artifactId="virtualizedfx" version="11.9.6" baseVersion="11.9.6" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.palexdev/virtualizedfx/11.9.6/981a0bb21718d6891e848bc2c9f46def1f9744fb/virtualizedfx-11.9.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

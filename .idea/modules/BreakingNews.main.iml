@@ -7,7 +7,46 @@
       <sourceFolder url="file://$MODULE_DIR$/../../BreakingNews/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../BreakingNews/src/main/resources" type="java-resource" />
     </content>
-    <orderEntry type="jdk" jdkName="23" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: io.github.palexdev:materialfx:11.16.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.github.palexdev:virtualizedfx:11.9.6" level="project" />
+    <orderEntry type="library" name="Gradle: io.github.palexdev:mfxresources:11.9.1" level="project" />
+    <orderEntry type="library" name="Gradle: io.github.palexdev:mfxcore:11.8.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.github.palexdev:mfxlocalization:11.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.github.palexdev:mfxeffects:11.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: fr.brouillard.oss:cssfx:11.5.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.json:json:20240303" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-csv:1.12.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-fxml:win:21" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-web:win:21" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-controls:win:21" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-media:win:21" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-swing:win:21" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-graphics:win:21" level="project" />
+    <orderEntry type="library" name="Gradle: org.openjfx:javafx-base:win:21" level="project" />
+    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.17.0" level="project" />
+    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.17.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-fxml:linux:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-fxml:mac:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-fxml:mac-aarch64:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-web:linux:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-web:mac:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-web:mac-aarch64:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-controls:linux:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-controls:mac:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-controls:mac-aarch64:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-media:linux:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-media:mac:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-media:mac-aarch64:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-swing:linux:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-swing:mac:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-swing:mac-aarch64:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-graphics:linux:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-graphics:mac:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-graphics:mac-aarch64:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-base:linux:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-base:mac:21" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.openjfx:javafx-base:mac-aarch64:21" level="project" />
   </component>
 </module>
