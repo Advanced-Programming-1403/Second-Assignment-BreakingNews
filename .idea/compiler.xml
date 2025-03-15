@@ -3,8 +3,6 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
       <module name="BreakingNews" target="23" />
-      <module name="BreakingNews.main" target="23" />
-      <module name="BreakingNews.test" target="23" />
     </bytecodeTargetLevel>
   </component>
 </project>
